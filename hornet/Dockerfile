@@ -1,5 +1,6 @@
-FROM ubuntu:latest
+FROM ubuntu:18.04
 
+RUN echo "INSTALLING HORNET"
 RUN apt-get update 
 RUN apt-get install -y wget sudo curl bash systemd
 RUN wget https://github.com/gohornet/hornet/releases/download/v0.4.0-rc8/hornet_0.4.0-rc8_amd64.deb
