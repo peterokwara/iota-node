@@ -1,0 +1,226 @@
+{
+  "custom": {
+    "caches": {
+      "addresses": {
+        "cacheTimeMs": 100,
+        "leakDetection": {
+          "enabled": false,
+          "maxConsumersPerObject": 20,
+          "maxConsumerHoldTimeSec": 100
+        }
+      },
+      "approvers": {
+        "cacheTimeMs": 1500,
+        "leakDetection": {
+          "enabled": false,
+          "maxConsumersPerObject": 20,
+          "maxConsumerHoldTimeSec": 100
+        }
+      },
+      "tags": {
+        "cacheTimeMs": 100,
+        "leakDetection": {
+          "enabled": false,
+          "maxConsumersPerObject": 20,
+          "maxConsumerHoldTimeSec": 100
+        }
+      },
+      "bundles": {
+        "cacheTimeMs": 1500,
+        "leakDetection": {
+          "enabled": false,
+          "maxConsumersPerObject": 20,
+          "maxConsumerHoldTimeSec": 100
+        }
+      },
+      "bundletransactions": {
+        "cacheTimeMs": 500,
+        "leakDetection": {
+          "enabled": false,
+          "maxConsumersPerObject": 20,
+          "maxConsumerHoldTimeSec": 100
+        }
+      },
+      "milestones": {
+        "cacheTimeMs": 500,
+        "leakDetection": {
+          "enabled": false,
+          "maxConsumersPerObject": 20,
+          "maxConsumerHoldTimeSec": 100
+        }
+      },
+      "transactions": {
+        "cacheTimeMs": 1500,
+        "leakDetection": {
+          "enabled": false,
+          "maxConsumersPerObject": 20,
+          "maxConsumerHoldTimeSec": 100
+        }
+      },
+      "firstSeenTx": {
+        "cacheTimeMs": 100,
+        "leakDetection": {
+          "enabled": false,
+          "maxConsumersPerObject": 20,
+          "maxConsumerHoldTimeSec": 100
+        }
+      },
+      "incomingTransactionFilter": {
+        "cacheTimeMs": 2000,
+        "leakDetection": {
+          "enabled": false,
+          "maxConsumersPerObject": 20,
+          "maxConsumerHoldTimeSec": 100
+        }
+      },
+      "refsInvalidBundle": {
+        "cacheTimeMs": 180000,
+        "leakDetection": {
+          "enabled": false,
+          "maxConsumersPerObject": 20,
+          "maxConsumerHoldTimeSec": 100
+        }
+      }
+    },
+    "badger": {
+      "levelOneSize": 67108864,
+      "levelSizeMultiplier": 10,
+      "tableLoadingMode": 0,
+      "valueLogLoadingMode": 0,
+      "maxLevels": 5,
+      "maxTableSize": 16777216,
+      "numCompactors": 1,
+      "numLevelZeroTables": 1,
+      "numLevelZeroTablesStall": 2,
+      "numMemtables": 1,
+      "bloomFalsePositive": 0.01,
+      "blockSize": 4096,
+      "syncWrites": false,
+      "numVersionsToKeep": 1,
+      "compactLevel0OnClose": false,
+      "keepL0InMemory": false,
+      "verifyValueChecksum": false,
+      "maxCacheSize": 50000000,
+      "ZSTDCompressionLevel": 1,
+      "CompressionType": 0,
+      "valueLogFileSize": 67108863,
+      "valueLogMaxEntries": 2097151,
+      "valueThreshold": 32,
+      "withTruncate": false,
+      "logRotatesToFlush": 2,
+      "eventLogging": false
+    }
+  },
+  "debug": {
+    "caches": {
+      "addresses": {
+        "cacheTimeMs": 1500,
+        "leakDetection": {
+          "enabled": true,
+          "maxConsumersPerObject": 20,
+          "maxConsumerHoldTimeSec": 100
+        }
+      },
+      "approvers": {
+        "cacheTimeMs": 1500,
+        "leakDetection": {
+          "enabled": true,
+          "maxConsumersPerObject": 20,
+          "maxConsumerHoldTimeSec": 100
+        }
+      },
+      "tags": {
+        "cacheTimeMs": 1500,
+        "leakDetection": {
+          "enabled": true,
+          "maxConsumersPerObject": 20,
+          "maxConsumerHoldTimeSec": 100
+        }
+      },
+      "bundles": {
+        "cacheTimeMs": 1500,
+        "leakDetection": {
+          "enabled": true,
+          "maxConsumersPerObject": 20,
+          "maxConsumerHoldTimeSec": 100
+        }
+      },
+      "bundletransactions": {
+        "cacheTimeMs": 500,
+        "leakDetection": {
+          "enabled": true,
+          "maxConsumersPerObject": 20,
+          "maxConsumerHoldTimeSec": 100
+        }
+      },
+      "milestones": {
+        "cacheTimeMs": 1500,
+        "leakDetection": {
+          "enabled": true,
+          "maxConsumersPerObject": 20,
+          "maxConsumerHoldTimeSec": 100
+        }
+      },
+      "transactions": {
+        "cacheTimeMs": 1500,
+        "leakDetection": {
+          "enabled": true,
+          "maxConsumersPerObject": 20,
+          "maxConsumerHoldTimeSec": 100
+        }
+      },
+      "firstSeenTx": {
+        "cacheTimeMs": 1500,
+        "leakDetection": {
+          "enabled": true,
+          "maxConsumersPerObject": 20,
+          "maxConsumerHoldTimeSec": 100
+        }
+      },
+      "incomingTransactionFilter": {
+        "cacheTimeMs": 1500,
+        "leakDetection": {
+          "enabled": true,
+          "maxConsumersPerObject": 20,
+          "maxConsumerHoldTimeSec": 100
+        }
+      },
+      "refsInvalidBundle": {
+        "cacheTimeMs": 180000,
+        "leakDetection": {
+          "enabled": true,
+          "maxConsumersPerObject": 20,
+          "maxConsumerHoldTimeSec": 100
+        }
+      }
+    },
+    "badger": {
+      "levelOneSize": 67108864,
+      "levelSizeMultiplier": 10,
+      "tableLoadingMode": 0,
+      "valueLogLoadingMode": 0,
+      "maxLevels": 5,
+      "maxTableSize": 16777216,
+      "numCompactors": 1,
+      "numLevelZeroTables": 1,
+      "numLevelZeroTablesStall": 2,
+      "numMemtables": 1,
+      "bloomFalsePositive": 0.01,
+      "blockSize": 4096,
+      "syncWrites": false,
+      "numVersionsToKeep": 1,
+      "compactLevel0OnClose": false,
+      "keepL0InMemory": false,
+      "verifyValueChecksum": false,
+      "maxCacheSize": 50000000,
+      "ZSTDCompressionLevel": 1,
+      "CompressionType": 0,
+      "valueLogFileSize": 67108863,
+      "valueLogMaxEntries": 2097151,
+      "valueThreshold": 32,
+      "withTruncate": false,
+      "logRotatesToFlush": 2,
+      "eventLogging": false
+    }
+  }
+}

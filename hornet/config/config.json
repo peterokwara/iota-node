@@ -1,0 +1,157 @@
+{
+  "useProfile": "auto",
+  "httpAPI": {
+    "basicAuth": {
+      "enabled": false,
+      "username": "",
+      "passwordHash": "",
+      "passwordSalt": ""
+    },
+    "excludeHealthCheckFromAuth": false,
+    "permitRemoteAccess": [
+      "getNodeInfo",
+      "getBalances",
+      "checkConsistency",
+      "getTransactionsToApprove",
+      "getInclusionStates",
+      "getNodeAPIConfiguration",
+      "wereAddressesSpentFrom",
+      "broadcastTransactions",
+      "findTransactions",
+      "storeTransactions",
+      "getTrytes"
+    ],
+    "whitelistedAddresses": [],
+    "bindAddress": "0.0.0.0:14265",
+    "limits": {
+      "bodyLengthBytes": 1000000,
+      "findTransactions": 1000,
+      "getTrytes": 1000,
+      "requestsList": 1000
+    }
+  },
+  "compass": {
+    "loadLSMIAsLMI": false
+  },
+  "dashboard": {
+    "bindAddress": "localhost:8081",
+    "theme": "default",
+    "dev": false,
+    "basicAuth": {
+      "enabled": false,
+      "username": "",
+      "passwordHash": "",
+      "passwordSalt": ""
+    }
+  },
+  "db": {
+    "path": "mainnetdb"
+  },
+  "snapshots": {
+    "loadType": "local",
+    "local": {
+      "depth": 50,
+      "intervalSynced": 50,
+      "intervalUnsynced": 1000,
+      "path": "export.bin",
+      "downloadURL": "https://ls.manapotion.io/export.bin"
+    },
+    "global": {
+      "path": "snapshotMainnet.txt",
+      "spentAddressesPaths": [
+        "previousEpochsSpentAddresses1.txt",
+        "previousEpochsSpentAddresses2.txt",
+        "previousEpochsSpentAddresses3.txt"
+      ],
+      "index": 1050000
+    },
+    "pruning": {
+      "enabled": true,
+      "delay": 40000
+    }
+  },
+  "spentAddresses": {
+    "enabled": true
+  },
+  "milestones": {
+    "coordinator": "EQSAUZXULTTYZCLNJNTXQTQHOMOFZERHTCGTXOLTVAHKSA9OGAZDEKECURBRIXIJWNPFCQIOVFVVXJVD9",
+    "coordinatorSecurityLevel": 2,
+    "numberOfKeysInAMilestone": 23
+  },
+  "network": {
+    "preferIPv6": false,
+    "gossip": {
+      "bindAddress": "0.0.0.0:15600",
+      "reconnectAttemptIntervalSeconds": 60
+    },
+    "autopeering": {
+      "bindAddress": "0.0.0.0:14626",
+      "runAsEntryNode": false,
+      "entryNodes": [
+        "LehlDBPJ6kfcfLOK6kAU4nD7B/BdR7SJhai7yFCbCCM=@enter.hornet.zone:14626",
+        "zEiNuQMDfZ6F8QDisa1ndX32ykBTyYCxbtkO0vkaWd0=@enter.manapotion.io:18626",
+        "npLI53UCxBvOJaV0xv/mzWuV+f+pduc6GzE83jM/5uo=@autopeering.tanglebay.org:14626"
+      ],
+      "seed": ""
+    }
+  },
+  "protocol": {
+    "mwm": 14
+  },
+  "tipsel": {
+    "belowMaxDepthTransactionLimit": 20000,
+    "maxDepth": 3
+  },
+  "node": {
+    "alias": "",
+    "showAliasInGetNodeInfo": false,
+    "disablePlugins": [],
+    "enablePlugins": []
+  },
+  "logger": {
+    "level": "info",
+    "disableCaller": true,
+    "encoding": "console",
+    "outputPaths": [
+      "stdout",
+      "hornet.log"
+    ]
+  },
+  "spammer": {
+    "address": "HORNET99INTEGRATED99SPAMMER999999999999999999999999999999999999999999999999999999",
+    "depth": 1,
+    "message": "Spamming with HORNET tipselect",
+    "tag": "HORNET99INTEGRATED99SPAMMER",
+    "tpsRateLimit": 0.1,
+    "workers": 1
+  },
+  "graph": {
+    "webRootPath": "IOTAtangle/webroot",
+    "domain": "",
+    "webSocket": {
+      "uri": ""
+    },
+    "bindAddress": "localhost:8083",
+    "networkName": "meets HORNET"
+  },
+  "monitor": {
+    "tangleMonitorPath": "tanglemonitor/frontend",
+    "domain": "",
+    "initialTransactionsCount": 15000,
+    "remoteApiPort": 4433,
+    "webBindAddress": "localhost:4434",
+    "apiBindAddress": "localhost:4433",
+    "webSocket": {
+      "uri": ""
+    }
+  },
+  "mqtt": {
+    "config": "mqtt_config.json"
+  },
+  "zmq": {
+    "bindAddress": "localhost:5556"
+  },
+  "profiling": {
+    "bindAddress": "localhost:6060"
+  }
+}
