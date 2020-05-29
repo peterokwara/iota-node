@@ -30,9 +30,6 @@
       "requestsList": 1000
     }
   },
-  "compass": {
-    "loadLSMIAsLMI": false
-  },
   "dashboard": {
     "bindAddress": "localhost:8081",
     "theme": "default",
@@ -45,7 +42,8 @@
     }
   },
   "db": {
-    "path": "comnetdb"
+    "path": "comnetdb",
+    "debugLog": false
   },
   "snapshots": {
     "loadType": "local",
@@ -69,10 +67,15 @@
   "spentAddresses": {
     "enabled": true
   },
-  "milestones": {
-    "coordinator": "ZNCCPOTBCDZXCBQYBWUYYFO9PLRHNAROWOS9KGMYWNVIXWGYGUSJBZUTUQBNQRADHPUEONZZTYGVMSRZD",
-    "coordinatorSecurityLevel": 2,
-    "numberOfKeysInAMilestone": 23
+  "coordinator": {
+    "address": "ZNCCPOTBCDZXCBQYBWUYYFO9PLRHNAROWOS9KGMYWNVIXWGYGUSJBZUTUQBNQRADHPUEONZZTYGVMSRZD",
+    "securityLevel": 2,
+    "merkleTreeDepth": 23,
+    "mwm": 10,
+    "stateFilePath": "coordinator.state",
+    "merkleTreeFilePath": "coordinator.tree",
+    "intervalSeconds": 60,
+    "checkpointTransactions": 5
   },
   "network": {
     "preferIPv6": false,
@@ -85,13 +88,11 @@
       "runAsEntryNode": false,
       "entryNodes": [
         "TANGLEleGqaMFFSTiyAV/vvdING/xuJNTDW16oCXZbo=@enter.comnet.thetangle.org:14641",
-        "YRdteHJeawDw6UMw22yePwiQYlc1CsrmWhVljzfc6uw=@autopeering.comnet.tanglebay.org:14636"
+        "YRdteHJeawDw6UMw22yePwiQYlc1CsrmWhVljzfc6uw=@entrynode.comnet.tanglebay.org:14636",
+        "1bU0uI+apA7YRna530e3SYfTDtUsobrLObt58pe5c5E=@enter.comnet.hornet.zone:14627"
       ],
       "seed": ""
     }
-  },
-  "protocol": {
-    "mwm": 10
   },
   "tipsel": {
     "belowMaxDepthTransactionLimit": 20000,
@@ -108,8 +109,7 @@
     "disableCaller": true,
     "encoding": "console",
     "outputPaths": [
-      "stdout",
-      "hornet.log"
+      "stdout"
     ]
   },
   "spammer": {
@@ -117,8 +117,9 @@
     "depth": 1,
     "message": "Spamming with HORNET tipselect",
     "tag": "HORNET99INTEGRATED99SPAMMER",
-    "tpsRateLimit": 0.1,
-    "workers": 1
+    "cpuMaxUsage": 0.5,
+    "tpsRateLimit": 0.0,
+    "workers": 0
   },
   "graph": {
     "webRootPath": "IOTAtangle/webroot",
@@ -132,7 +133,7 @@
   "monitor": {
     "tangleMonitorPath": "tanglemonitor/frontend",
     "domain": "",
-    "initialTransactionsCount": 15000,
+    "initialTransactions": 15000,
     "remoteApiPort": 4433,
     "webBindAddress": "localhost:4434",
     "apiBindAddress": "localhost:4433",

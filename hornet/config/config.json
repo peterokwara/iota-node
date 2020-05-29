@@ -30,9 +30,6 @@
       "requestsList": 1000
     }
   },
-  "compass": {
-    "loadLSMIAsLMI": false
-  },
   "dashboard": {
     "bindAddress": "localhost:8081",
     "theme": "default",
@@ -73,10 +70,15 @@
   "spentAddresses": {
     "enabled": true
   },
-  "milestones": {
-    "coordinator": "EQSAUZXULTTYZCLNJNTXQTQHOMOFZERHTCGTXOLTVAHKSA9OGAZDEKECURBRIXIJWNPFCQIOVFVVXJVD9",
-    "coordinatorSecurityLevel": 2,
-    "numberOfKeysInAMilestone": 23
+  "coordinator": {
+    "address": "EQSAUZXULTTYZCLNJNTXQTQHOMOFZERHTCGTXOLTVAHKSA9OGAZDEKECURBRIXIJWNPFCQIOVFVVXJVD9",
+    "securityLevel": 2,
+    "merkleTreeDepth": 23,
+    "mwm": 14,
+    "stateFilePath": "coordinator.state",
+    "merkleTreeFilePath": "coordinator.tree",
+    "intervalSeconds": 60,
+    "checkpointTransactions": 5
   },
   "network": {
     "preferIPv6": false,
@@ -90,13 +92,10 @@
       "entryNodes": [
         "LehlDBPJ6kfcfLOK6kAU4nD7B/BdR7SJhai7yFCbCCM=@enter.hornet.zone:14626",
         "zEiNuQMDfZ6F8QDisa1ndX32ykBTyYCxbtkO0vkaWd0=@enter.manapotion.io:18626",
-        "npLI53UCxBvOJaV0xv/mzWuV+f+pduc6GzE83jM/5uo=@autopeering.tanglebay.org:14626"
+        "npLI53UCxBvOJaV0xv/mzWuV+f+pduc6GzE83jM/5uo=@entrynode.tanglebay.org:14626"
       ],
       "seed": ""
     }
-  },
-  "protocol": {
-    "mwm": 14
   },
   "tipsel": {
     "belowMaxDepthTransactionLimit": 20000,
@@ -113,8 +112,7 @@
     "disableCaller": true,
     "encoding": "console",
     "outputPaths": [
-      "stdout",
-      "hornet.log"
+      "stdout"
     ]
   },
   "spammer": {
@@ -122,8 +120,9 @@
     "depth": 1,
     "message": "Spamming with HORNET tipselect",
     "tag": "HORNET99INTEGRATED99SPAMMER",
-    "tpsRateLimit": 0.1,
-    "workers": 1
+    "cpuMaxUsage": 0.5,
+    "tpsRateLimit": 0.0,
+    "workers": 0
   },
   "graph": {
     "webRootPath": "IOTAtangle/webroot",
@@ -132,12 +131,14 @@
       "uri": ""
     },
     "bindAddress": "localhost:8083",
-    "networkName": "meets HORNET"
+    "networkName": "meets HORNET",
+    "explorerTxLink": "http://localhost:8081/explorer/tx/",
+    "explorerBundleLink": "http://localhost:8081/explorer/bundle/"
   },
   "monitor": {
     "tangleMonitorPath": "tanglemonitor/frontend",
     "domain": "",
-    "initialTransactionsCount": 15000,
+    "initialTransactions": 15000,
     "remoteApiPort": 4433,
     "webBindAddress": "localhost:4434",
     "apiBindAddress": "localhost:4433",
