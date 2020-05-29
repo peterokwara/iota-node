@@ -1,0 +1,17 @@
+version: '3.4'
+services:
+  compass:
+    image: "iotaledger/compass:coordinator-683c81b"
+    # command: ["./layers_calculator_deploy.jar"," -sigMode"," $${sigMode}","-seed","$${seed}","-depth","$${depth}","-security","$${security}","-layers","/data/layers"]
+    command: ["./coordinator_deploy.jar","-layers", "/data/layers","-statePath","/data/compass.state","-sigMode", "$${sigMode}","-powMode", "$${powMode}","-mwm", "$${mwm}","-security","$${security}","-seed", "$${seed}","-tick", "$${tick}","-host", "$${host}"]
+    env_file:
+        - ./config/.env
+    labels:
+      - "run"
+    volumes:
+      - ./data/layers:/data/layers
+
+volumes:
+  hornetchaindata:
+    labels:
+      - "run"

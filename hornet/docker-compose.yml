@@ -2,18 +2,11 @@ version: '3.4'
 services:
   hornet:
     build:
-      context: ./hornet
+      context: .
       dockerfile: Dockerfile
-      labels:
-        - "run"
     image: iota/hornet
     command: ["hornet", "-c", "/etc/hornet/config"]
-    labels:
-      - "run"
     volumes:
       - ./hornet/config:/etc/hornet
 
-volumes:
-  hornetchaindata:
-    labels:
-      - "run"
+
