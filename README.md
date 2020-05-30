@@ -1,5 +1,8 @@
 # IOTA Node
 
+[![Hornet](https://img.shields.io/badge/hornet-0.4.0--rc11-blue)](https://github.com/gohornet/hornet/releases/tag/v0.4.0-rc11)
+[![Compass](https://img.shields.io/badge/Compass-coordinator--683c81b-orange)](https://hub.docker.com/layers/iotaledger/compass/coordinator-683c81b/images/sha256-5aaed10734ab3bb2e0e21112fa4e70630b7eb5806a205333c7bb44fdf6be9d5a?context=explore)
+
 Configuration files for launching a iota node on a cloud server. 
 
 This is for
