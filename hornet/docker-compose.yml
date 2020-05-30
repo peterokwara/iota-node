@@ -5,12 +5,11 @@ services:
       context: .
       dockerfile: Dockerfile
     image: iota/hornet
-    command: ["hornet", "-c", "/home/ubuntu/hornet/config/config"]
+    command: ["hornet", "-c", "/home/ubuntu/hornet/config/config", "-n", "/home/ubuntu/hornet/config/peering"]
     volumes:
       - ./config:/home/ubuntu/hornet/config
-    ports: 
+    ports:
      - "14265:14265"
      - "15600:15600"
      - "14626:14626"
-
-
+     - "8081:8081"
