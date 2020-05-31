@@ -32,21 +32,18 @@ Before installing, ensure the following ports are open. This is both in the fire
 14265 TCP - API port (optional if you don't want to access your node's API from external)
 ```
 
-Optional port to open.
+Instructions on how to set up docker, docker-commpose and ufw (on Ubuntu Server 18.04) can be found here
+- Docker https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04
+- Docker-compose https://www.digitalocean.com/community/tutorials/how-to-install-docker-compose-on-ubuntu-18-04
+- UFW (Uncomplicated Firewall) https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-ubuntu-18-04
 
-```
-8081 TCP - Dashboard
-```
-
-This is in case you want to access statistics about your running node on a web browser.
+#### Single node
 
 The first step is to clone the repository by running:
 
 ```
 git clone https://github.com/peterokwara/iota-node.git
 ```
-
-#### Single node
 
 With the repository cloned, navigate to the `iota-node/hornet/` directory and run:
 
@@ -69,6 +66,12 @@ docker-compose down
 ```
 
 #### Multiple nodes connected to each other
+
+The first step is to clone the repository by running:
+
+```
+git clone https://github.com/peterokwara/iota-node.git
+```
 
 With the repository cloned, navigate to the `iota-node/hornet/` directory.
 
@@ -155,6 +158,76 @@ To shutdown the node, you can simply run:
 ```
 docker-compose down
 ```
+#### Dashboard
+
+**Warning** This is not advisable since anyone can see all the information about your node running. Setting up a username and password to access the dashboard is advisable.
+
+To view the dashboard from anywhere, you need to enable port 8081 on your docker instance. This is done by adding the following line to your docker-compose file in the `iota-node/hornet` path
+
+```
+     - "8081:8081"
+```
+
+So that your `docker-compose.yml` file becomes:
+
+```
+version: '3.4'
+services:
+  hornet:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: iota/hornet
+    command: ["hornet", "-c", "/home/ubuntu/hornet/config/config", "-n", "/home/ubuntu/hornet/config/peering"]
+    volumes:
+      - ./config:/home/ubuntu/hornet/config
+    ports:
+     - "14265:14265"
+     - "15600:15600"
+     - "14626:14626"
+     - "8081:8081"
+```
+The next step is to modify the `config.json` file in the `iota-node/hornet/config` path by changing the dashboard configuration from
+
+```
+"dashboard": {
+    "bindAddress": "localhost:8081",
+    "theme": "default",
+    "dev": false,
+    "basicAuth": {
+      "enabled": false,
+      "username": "",
+      "passwordHash": "",
+      "passwordSalt": ""
+    }
+  }
+```
+
+to 
+
+```
+"dashboard": {
+    "bindAddress": "0.0.0.0:8081",
+    "theme": "default",
+    "dev": false,
+    "basicAuth": {
+      "enabled": false,
+      "username": "",
+      "passwordHash": "",
+      "passwordSalt": ""
+    }
+  }
+```
+
+by changing the bindAddress to `0.0.0.0` allows the dashboard to be accessed by anywhere in the world.
+
+The next step is to ensure that the port
+
+```
+8081 TCP - Dashboard
+```
+
+Is open both in the internal firewall in the server, and both in the cloud service provider.
 
 ## Built With
 
