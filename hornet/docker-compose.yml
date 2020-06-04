@@ -5,9 +5,9 @@ services:
       context: .
       dockerfile: Dockerfile
     image: iota/hornet
-    command: ["hornet", "-c", "/home/ubuntu/hornet/config/config"]
+    command: ["hornet", "-d", "/var/lib/hornet"]
     volumes:
-      - ./config:/home/ubuntu/hornet/config
+      - ./config:/var/lib/hornet
     ports:
      - "14265:14265"
      - "15600:15600"
