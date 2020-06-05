@@ -128,7 +128,7 @@ The following software needs to be installed
     ```
     docker-compose down
     ```
-### Private node
+#### Private node
 
 1. The first step is to generate a seed for the Coordinator and for the Snapshot. One way of doing this is buy runnig this command twice in a linux machine:
 
@@ -301,7 +301,6 @@ The following software needs to be installed
 ## Built With
 
 * [GoHornet](https://github.com/gohornet/hornet) - The IOTA fullnode software 
-* [Compass](https://github.com/iotaledger/compass) - The IOTA Network coordinator
 
 ## Contributing
 
