@@ -235,13 +235,7 @@ The following software needs to be installed
     merkle tree root: BHKJSBMRSZLFMXJFYE9NHYTZCRAZQHLZTIBTKVNZLVWAXKESPOANYARWQYOYYHONDJYEAMMSOQEGGEPKB
     successfully created merkle tree (took 1s).
     ```
-7. Once it has finished and the `merkle tree root` is displayed after running
-
-    ```
-    docker-compose logs -f
-    ```
-    
-    You can then copy the `merkle tree root` to the config file in the `iota-node/private_hornet/hornet/config` directory under `coordinator address` as shown below.
+7. Once it has finished and the `merkle tree root` is displayed after running `docker-compose logs -f` as shown above, you can then copy the `merkle tree root` to the config file in the `iota-node/private_hornet/hornet/config` directory under `coordinator address` as shown below.
     
     ```
     "coordinator":{
