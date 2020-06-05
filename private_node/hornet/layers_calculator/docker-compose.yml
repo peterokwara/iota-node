@@ -5,14 +5,9 @@ services:
       context: ../
       dockerfile: Dockerfile
     image: iota/hornet
-    command: > 
+    command: >
       bash -c "cd /var/lib/hornet &&
-      sudo -u hornet COO_SEED="$${COO_SEED}" hornet tool merkle | grep -o '[A-Z9]*$' | sudo tee coordinator_address.txt"
+      sudo chown hornet: /var/lib/hornet/ -R &&
+      sudo -u hornet COO_SEED="${COO_SEED}" hornet tool merkle"
     volumes:
       - ../config:/var/lib/hornet
-    ports:
-      - "14265:14265"
-      - "15600:15600"
-      - "14626:14626"
-    
-
