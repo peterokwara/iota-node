@@ -1,15 +1,11 @@
 version: '3.4'
 services:
   hornet:
-    # build:
-    #   context: .
-    #   dockerfile: Dockerfile
     image: gohornet/hornet:latest
-    # command: ["sudo hornet", "-d", "/app"]
+    network_mode: host
     volumes:
       - ./config/config.json:/app/config.json:ro
       - ./config/config_comnet.json:/app/config_comnet.json:ro
       - ./config/mqtt_config.json:/app/mqtt_config.json
       - ./config/profiles.json:/app/profiles.json
       - ./config/peering.json:/app/peering.json
-    network_mode: host
