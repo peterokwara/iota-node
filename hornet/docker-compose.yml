@@ -1,14 +1,15 @@
 version: '3.4'
 services:
   hornet:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: iota/hornet
-    command: ["sudo hornet", "-d", "/var/lib/hornet"]
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
+    image: gohornet/hornet:latest
+    # command: ["sudo hornet", "-d", "/app"]
     volumes:
-      - ./config:/var/lib/hornet
-    ports:
-     - "14265:14265"
-     - "15600:15600"
-     - "14626:14626"
+      - ./config/config.json:/app/config.json:ro
+      - ./config/config_comnet.json:/app/config_comnet.json:ro
+      - ./config/mqtt_config.json:/app/mqtt_config.json
+      - ./config/profiles.json:/app/profiles.json
+      - ./config/peering.json:/app/peering.json
+    network_mode: host
